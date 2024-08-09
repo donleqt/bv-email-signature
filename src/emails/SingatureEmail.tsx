@@ -35,9 +35,15 @@ type IconRowProps = {
 
 const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
   return (
-    <Link href={href} title={text}>
-      <Row className="border-brand " cellPadding={0} color="#fff">
-        <Column width={30} className="border-brand" color="#fff">
+    <Link href={href} title={text} className="underline">
+      <Row className="border-brand " cellPadding={0} color="#ffffff">
+        <Column
+          width={30}
+          className="border-brand"
+          align="left"
+          valign="middle"
+          color="#ffffff"
+        >
           {!!icon && (
             <Img
               src={icon}
@@ -48,10 +54,15 @@ const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
             />
           )}
         </Column>
-        <Column className="border-brand" color="#fff">
+        <Column
+          className="border-brand underline"
+          color="#ffffff"
+          align="left"
+          valign="middle"
+        >
           <Text
             className="text-white underline text-[12px] border-brand my-0"
-            color="#fff"
+            color="#ffffff"
           >
             {text}
           </Text>
@@ -88,29 +99,35 @@ const SignatureEmail: React.FC<Props> = ({
             fontWeight={400}
             fontStyle="normal"
           />
-          <Column align="center" className="py-6 px-4 border-brand w-[400px]">
+          <Column
+            align="left"
+            className="py-6 px-10 border-brand whitespace-nowrap text-center"
+            style={{
+              width: Math.max(230, 12 * name.length),
+            }}
+          >
             {/* Name */}
             <Img
-              className="mx-auto"
+              className="mx-auto mb-2"
               src={icons.prod.logo}
               alt="Logo"
               width="90"
               height="90"
             />
-            <p
-              className="text-[16px] mb-0 mt-2 border-brand text-white"
-              color="#fff"
+            <Text
+              className="text-[16px] p-0 m-0 border-brand text-white whitespace-nowrap"
+              color="#ffffff"
             >
               {name}
-            </p>
-            <p
-              className="text-[12px] my-0 font-light border-brand text-white"
-              color="#fff"
+            </Text>
+            <Text
+              className="text-[12px] p-0 m-0  font-light border-brand text-white whitespace-nowrap"
+              color="#ffffff"
             >
               {title}
-            </p>
+            </Text>
           </Column>
-          <Column align="left" className="border-brand  w-[230px]  text-white">
+          <Column align="left" className="border-brand w-[400px] text-white">
             <IconRow
               href={`tel:${phone.replace(/ /g, '')}`}
               text={phone}

@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import SignatureEmail, { SignatureData } from './emails/SingatureEmail';
+import SignatureEmail, {
+  renderEmail,
+  SignatureData,
+} from './emails/SingatureEmail';
 import UserForm from './components/UserForm';
-import { copyElementWithStyle } from './helpers/copyElementWithStyle';
+import { copyHtmlWithStylesToClipboard } from './helpers/copyToClipboard';
 
 const defaultSigData: SignatureData = {
-  name: 'Dr Stephane Verhaeghe',
+  name: 'Dr Stephane Verhaeghe | Dan Stevens',
   title: 'Co-Founders',
   phone: '+61 429 150 869',
   phone2: '+61 402 450 030',
@@ -30,7 +33,10 @@ function App() {
           <button
             type="button"
             className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={() => copyElementWithStyle('signature')}
+            onClick={() => {
+              const html = renderEmail(sigData);
+              copyHtmlWithStylesToClipboard(html);
+            }}
           >
             Copy Signature
           </button>
