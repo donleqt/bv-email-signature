@@ -34,20 +34,20 @@ type IconRowProps = {
 const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
   return (
     <Link href={href} title={text}>
-      <Row className={`border-none ${lastItem ? 'pt-2' : 'pt-1'}`}>
-        <Column width={30} className="border-none">
+      <Row className="border-brand ">
+        <Column width={30} className="border-brand">
           {!!icon && (
             <Img
               src={icon}
               alt={text}
               width="14"
               height="14"
-              className="border-none"
+              className="border-brand"
             />
           )}
         </Column>
-        <Column className="border-none">
-          <Text className="text-white underline text-[12px] border-none my-0">
+        <Column className="border-brand">
+          <Text className="text-white underline text-[12px] border-brand my-0">
             {text}
           </Text>
         </Column>
@@ -61,7 +61,7 @@ const SignatureEmail: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Row className="bg-brand text-white border-none">
+      <Row className="bg-brand text-white border-brand">
         <Font
           fontFamily="Poppins"
           fallbackFontFamily="Verdana"
@@ -82,17 +82,17 @@ const SignatureEmail: React.FC<Props> = ({
           fontWeight={400}
           fontStyle="normal"
         />
-        <Column align="center" className="py-6 px-4 border-none w-[400px]">
+        <Column align="center" className="py-6 px-4 border-brand w-[400px]">
           {/* Name */}
           <Img src="/img/logo.png" alt="Logo" width="90" height="90" />
-          <Text className="text-[16px] mb-0 mt-2 border-none text-white">
+          <Text className="text-[16px] mb-0 mt-2 border-brand text-white">
             {name}
           </Text>
-          <Text className="text-[12px] my-0 font-light border-none text-white">
+          <Text className="text-[12px] my-0 font-light border-brand text-white">
             {title}
           </Text>
         </Column>
-        <Column align="left" className="border-none w-[230px]  text-white">
+        <Column align="left" className="border-brand w-[230px]  text-white">
           <IconRow
             href={`tel:${phone.replace(/ /g, '')}`}
             text={phone}
@@ -123,8 +123,8 @@ const SignatureEmail: React.FC<Props> = ({
             icon="/img/linkedin.png"
           />
         </Column>
-        <Column align="center" className="border-none">
-          <div></div>
+        <Column align="center" className="border-brand">
+          &nbsp;
         </Column>
       </Row>
     </Tailwind>
