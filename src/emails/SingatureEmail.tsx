@@ -84,7 +84,7 @@ const SignatureEmail: React.FC<Props> = ({
         />
         <Column align="center" className="py-6 px-4 border-brand w-[400px]">
           {/* Name */}
-          <Img src="/img/logo.png" alt="Logo" width="90" height="90" />
+          <Img src="./img/logo.png" alt="Logo" width="90" height="90" />
           <Text className="text-[16px] mb-0 mt-2 border-brand text-white">
             {name}
           </Text>
@@ -96,7 +96,7 @@ const SignatureEmail: React.FC<Props> = ({
           <IconRow
             href={`tel:${phone.replace(/ /g, '')}`}
             text={phone}
-            icon="/img/phone.png"
+            icon="./img/phone.png"
           />
 
           {!!phone2 && (
@@ -107,20 +107,24 @@ const SignatureEmail: React.FC<Props> = ({
             />
           )}
 
-          <IconRow href={`mailto:${email}`} text={email} icon="/img/mail.png" />
+          <IconRow
+            href={`mailto:${email}`}
+            text={email}
+            icon="./img/mail.png"
+          />
           <IconRow href={`mailto:${email2}`} text={email2} icon="" />
 
           <IconRow
             href="https://www.brainvector.com.au"
             text="www.brainvector.com.au"
-            icon="/img/link.png"
+            icon="./img/link.png"
           />
 
           <IconRow
             lastItem
             href="https://www.linkedin.com/company/brainvector/"
             text="Brain Vector"
-            icon="/img/linkedin.png"
+            icon="./img/linkedin.png"
           />
         </Column>
         <Column align="center" className="border-brand">
