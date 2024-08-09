@@ -5,7 +5,7 @@ import UserForm from './components/UserForm';
 import { copyElementWithStyle } from './helpers/copyElementWithStyle';
 
 const defaultSigData: SignatureData = {
-  name: 'Dr Stephane Verhaeghe | Dan Stevens',
+  name: 'Dr Stephane Verhaeghe',
   title: 'Co-Founders',
   phone: '+61 429 150 869',
   phone2: '+61 402 450 030',
@@ -17,7 +17,7 @@ function App() {
   const [sigData, setSigData] = useState<SignatureData>(defaultSigData);
 
   return (
-    <div className="container mx-auto">
+    <div className="px-4">
       <div className="grid grid-cols-[0.5fr_1fr] gap-5">
         <div className="mt-12 bg-white shadow-md p-5 rounded">
           <UserForm defaultData={sigData} onChange={setSigData} />

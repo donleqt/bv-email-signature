@@ -9,6 +9,7 @@ import {
   Text,
   Link,
   Font,
+  Section,
 } from '@react-email/components';
 import { icons } from './icons';
 
@@ -35,8 +36,8 @@ type IconRowProps = {
 const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
   return (
     <Link href={href} title={text}>
-      <Row className="border-brand ">
-        <Column width={30} className="border-brand">
+      <Row className="border-brand " cellPadding={0} color="#fff">
+        <Column width={30} className="border-brand" color="#fff">
           {!!icon && (
             <Img
               src={icon}
@@ -47,8 +48,11 @@ const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
             />
           )}
         </Column>
-        <Column className="border-brand">
-          <Text className="text-white underline text-[12px] border-brand my-0">
+        <Column className="border-brand" color="#fff">
+          <Text
+            className="text-white underline text-[12px] border-brand my-0"
+            color="#fff"
+          >
             {text}
           </Text>
         </Column>
@@ -62,76 +66,90 @@ const SignatureEmail: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Row className="text-white border-brand" bgcolor={BRAND_COLOR}>
-        <Font
-          fontFamily="Poppins"
-          fallbackFontFamily="Verdana"
-          webFont={{
-            url: 'https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2',
-            format: 'woff2',
-          }}
-          fontWeight={500}
-          fontStyle="normal"
-        />
-        <Font
-          fontFamily="Poppins"
-          fallbackFontFamily="Verdana"
-          webFont={{
-            url: 'https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2',
-            format: 'woff2',
-          }}
-          fontWeight={400}
-          fontStyle="normal"
-        />
-        <Column align="center" className="py-6 px-4  border-brand w-[400px]">
-          {/* Name */}
-          <Img src={icons.prod.logo} alt="Logo" width="90" height="90" />
-          <Text className="text-[16px] mb-0 mt-2 border-brand text-white">
-            {name}
-          </Text>
-          <Text className="text-[12px] my-0 font-light border-brand text-white">
-            {title}
-          </Text>
-        </Column>
-        <Column align="left" className="border-brand  w-[230px]  text-white">
-          <IconRow
-            href={`tel:${phone.replace(/ /g, '')}`}
-            text={phone}
-            icon={icons.prod.phone}
+      <Section>
+        <Row className="text-white border-brand" bgcolor={BRAND_COLOR}>
+          <Font
+            fontFamily="Poppins"
+            fallbackFontFamily="Verdana"
+            webFont={{
+              url: 'https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2',
+              format: 'woff2',
+            }}
+            fontWeight={500}
+            fontStyle="normal"
           />
-
-          {!!phone2 && (
-            <IconRow
-              href={`tel:${phone2.replace(/ /g, '')}`}
-              text={phone2}
-              icon=""
+          <Font
+            fontFamily="Poppins"
+            fallbackFontFamily="Verdana"
+            webFont={{
+              url: 'https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2',
+              format: 'woff2',
+            }}
+            fontWeight={400}
+            fontStyle="normal"
+          />
+          <Column align="center" className="py-6 px-4 border-brand w-[400px]">
+            {/* Name */}
+            <Img
+              className="mx-auto"
+              src={icons.prod.logo}
+              alt="Logo"
+              width="90"
+              height="90"
             />
-          )}
+            <p
+              className="text-[16px] mb-0 mt-2 border-brand text-white"
+              color="#fff"
+            >
+              {name}
+            </p>
+            <p
+              className="text-[12px] my-0 font-light border-brand text-white"
+              color="#fff"
+            >
+              {title}
+            </p>
+          </Column>
+          <Column align="left" className="border-brand  w-[230px]  text-white">
+            <IconRow
+              href={`tel:${phone.replace(/ /g, '')}`}
+              text={phone}
+              icon={icons.prod.phone}
+            />
 
-          <IconRow
-            href={`mailto:${email}`}
-            text={email}
-            icon={icons.prod.mail}
-          />
-          <IconRow href={`mailto:${email2}`} text={email2} icon="" />
+            {!!phone2 && (
+              <IconRow
+                href={`tel:${phone2.replace(/ /g, '')}`}
+                text={phone2}
+                icon=""
+              />
+            )}
 
-          <IconRow
-            href="https://www.brainvector.com.au"
-            text="www.brainvector.com.au"
-            icon={icons.prod.link}
-          />
+            <IconRow
+              href={`mailto:${email}`}
+              text={email}
+              icon={icons.prod.mail}
+            />
+            <IconRow href={`mailto:${email2}`} text={email2} icon="" />
 
-          <IconRow
-            lastItem
-            href="https://www.linkedin.com/company/brainvector/"
-            text="Brain Vector"
-            icon={icons.prod.linkedin}
-          />
-        </Column>
-        <Column align="center" className="border-brand">
-          <div>&nbsp;</div>
-        </Column>
-      </Row>
+            <IconRow
+              href="https://www.brainvector.com.au"
+              text="www.brainvector.com.au"
+              icon={icons.prod.link}
+            />
+
+            <IconRow
+              lastItem
+              href="https://www.linkedin.com/company/brainvector/"
+              text="Brain Vector"
+              icon={icons.prod.linkedin}
+            />
+          </Column>
+          <Column align="center" className="border-brand">
+            <div>&nbsp;</div>
+          </Column>
+        </Row>
+      </Section>
     </Tailwind>
   );
 };
