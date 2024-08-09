@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bv-email-signature/static/css/main.7ecc42c4.css",
-    "main.js": "/bv-email-signature/static/js/main.250d7011.js",
+    "main.js": "/bv-email-signature/static/js/main.6cec9388.js",
     "static/js/453.1b6d1aee.chunk.js": "/bv-email-signature/static/js/453.1b6d1aee.chunk.js",
     "index.html": "/bv-email-signature/index.html",
     "main.7ecc42c4.css.map": "/bv-email-signature/static/css/main.7ecc42c4.css.map",
-    "main.250d7011.js.map": "/bv-email-signature/static/js/main.250d7011.js.map",
+    "main.6cec9388.js.map": "/bv-email-signature/static/js/main.6cec9388.js.map",
     "453.1b6d1aee.chunk.js.map": "/bv-email-signature/static/js/453.1b6d1aee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ecc42c4.css",
-    "static/js/main.250d7011.js"
+    "static/js/main.6cec9388.js"
   ]
 }
