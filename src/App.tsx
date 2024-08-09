@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import SignatureEmail, { SignatureData } from './emails/SingatureEmail';
+import UserForm from './components/UserForm';
+import { copyElementWithStyle } from './helpers/copyElementWithStyle';
+
+const defaultSigData: SignatureData = {
+  name: 'Dr Stephane Verhaeghe | Dan Stevens',
+  title: 'Co-Founders',
+  phone: '+61 429 150 869',
+  phone2: '+61 402 450 030',
+  email: 'stephane@brainvector.com.au',
+  email2: 'dan@brainvector.com.au',
+};
 
 function App() {
+  const [sigData, setSigData] = useState<SignatureData>(defaultSigData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto">
+      <div className="grid grid-cols-[0.5fr_1fr] gap-5">
+        <div className="mt-12 bg-white shadow-md p-5 rounded">
+          <UserForm defaultData={sigData} onChange={setSigData} />
+        </div>
+        <div className="mt-12  bg-white shadow-md p-5 rounded">
+          <div id="signature">
+            <SignatureEmail data={sigData} />
+          </div>
+
+          <button
+            type="button"
+            className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onClick={() => copyElementWithStyle('signature')}
+          >
+            Copy Signature
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
