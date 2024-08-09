@@ -35,7 +35,7 @@ type IconRowProps = {
 
 const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
   return (
-    <Link href={href} title={text} className="underline">
+    <Link href={href} title={text} className="underline decoration-white">
       <Row className="border-brand " cellPadding={0} color="#ffffff">
         <Column
           width={30}
@@ -80,8 +80,8 @@ const SignatureEmail: React.FC<Props> = ({
       <Section>
         <Row className="text-white border-brand" bgcolor={BRAND_COLOR}>
           <Font
-            fontFamily="Poppins"
-            fallbackFontFamily="Verdana"
+            fontFamily="Poppins, verdana, geneva, sans-serif;"
+            fallbackFontFamily={['Verdana', 'Georgia', 'sans-serif']}
             webFont={{
               url: 'https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2',
               format: 'woff2',
@@ -90,8 +90,8 @@ const SignatureEmail: React.FC<Props> = ({
             fontStyle="normal"
           />
           <Font
-            fontFamily="Poppins"
-            fallbackFontFamily="Verdana"
+            fontFamily="Poppins, verdana, geneva, sans-serif;"
+            fallbackFontFamily={['Verdana', 'Georgia', 'sans-serif']}
             webFont={{
               url: 'https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2',
               format: 'woff2',
@@ -103,7 +103,7 @@ const SignatureEmail: React.FC<Props> = ({
             align="left"
             className="py-6 px-10 border-brand whitespace-nowrap text-center"
             style={{
-              width: Math.max(230, 12 * name.length),
+              width: Math.max(300, 12 * name.length),
             }}
           >
             {/* Name */}
