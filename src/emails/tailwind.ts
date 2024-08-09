@@ -1,5 +1,7 @@
 import type { TailwindConfig } from '@react-email/tailwind';
 
+export const BRAND_COLOR = '#001450';
+
 export default {
   theme: {
     extend: {

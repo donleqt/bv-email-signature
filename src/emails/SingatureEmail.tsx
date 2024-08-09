@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@react-email/render';
-import tailwindConfig from './tailwind';
+import tailwindConfig, { BRAND_COLOR } from './tailwind';
 import {
   Tailwind,
   Column,
@@ -10,6 +10,7 @@ import {
   Link,
   Font,
 } from '@react-email/components';
+import { icons } from './icons';
 
 export type SignatureData = {
   title: string;
@@ -61,7 +62,7 @@ const SignatureEmail: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Row className="bg-brand text-white border-brand">
+      <Row className="text-white border-brand" bgcolor={BRAND_COLOR}>
         <Font
           fontFamily="Poppins"
           fallbackFontFamily="Verdana"
@@ -82,9 +83,9 @@ const SignatureEmail: React.FC<Props> = ({
           fontWeight={400}
           fontStyle="normal"
         />
-        <Column align="center" className="py-6 px-4 border-brand w-[400px]">
+        <Column align="center" className="py-6 px-4  border-brand w-[400px]">
           {/* Name */}
-          <Img src="./img/logo.png" alt="Logo" width="90" height="90" />
+          <Img src={icons.prod.logo} alt="Logo" width="90" height="90" />
           <Text className="text-[16px] mb-0 mt-2 border-brand text-white">
             {name}
           </Text>
@@ -92,11 +93,11 @@ const SignatureEmail: React.FC<Props> = ({
             {title}
           </Text>
         </Column>
-        <Column align="left" className="border-brand w-[230px]  text-white">
+        <Column align="left" className="border-brand  w-[230px]  text-white">
           <IconRow
             href={`tel:${phone.replace(/ /g, '')}`}
             text={phone}
-            icon="./img/phone.png"
+            icon={icons.prod.phone}
           />
 
           {!!phone2 && (
@@ -110,25 +111,25 @@ const SignatureEmail: React.FC<Props> = ({
           <IconRow
             href={`mailto:${email}`}
             text={email}
-            icon="./img/mail.png"
+            icon={icons.prod.mail}
           />
           <IconRow href={`mailto:${email2}`} text={email2} icon="" />
 
           <IconRow
             href="https://www.brainvector.com.au"
             text="www.brainvector.com.au"
-            icon="./img/link.png"
+            icon={icons.prod.link}
           />
 
           <IconRow
             lastItem
             href="https://www.linkedin.com/company/brainvector/"
             text="Brain Vector"
-            icon="./img/linkedin.png"
+            icon={icons.prod.linkedin}
           />
         </Column>
         <Column align="center" className="border-brand">
-          &nbsp;
+          <div>&nbsp;</div>
         </Column>
       </Row>
     </Tailwind>
