@@ -25,21 +25,23 @@ function App() {
         <div className="mt-12 bg-white shadow-md p-5 rounded">
           <UserForm defaultData={sigData} onChange={setSigData} />
         </div>
-        <div className="mt-12  bg-white shadow-md p-5 rounded">
+        <div className="mt-12 bg-white shadow-md p-5 rounded flex flex-col">
           <div id="signature">
             <SignatureEmail data={sigData} />
           </div>
 
-          <button
-            type="button"
-            className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={() => {
-              const html = renderEmail(sigData);
-              copyHtmlWithStylesToClipboard(html);
-            }}
-          >
-            Copy Signature
-          </button>
+          <div>
+            <button
+              type="button"
+              className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={() => {
+                const html = renderEmail(sigData);
+                copyHtmlWithStylesToClipboard(html);
+              }}
+            >
+              Copy Signature
+            </button>
+          </div>
         </div>
       </div>
     </div>

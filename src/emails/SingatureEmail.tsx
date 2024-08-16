@@ -8,10 +8,10 @@ import {
   Row,
   Text,
   Link,
-  Font,
   Section,
 } from '@react-email/components';
 import { icons } from './icons';
+import { ImportFonts } from './ImportFonts';
 
 export type SignatureData = {
   title: string;
@@ -30,45 +30,38 @@ type IconRowProps = {
   href: string;
   text: string;
   icon?: string;
-  lastItem?: boolean;
 };
 
-const IconRow = ({ href, text, icon, lastItem }: IconRowProps) => {
+const IconRow = ({ href, text, icon }: IconRowProps) => {
   return (
-    <Link href={href} title={text} className="underline decoration-white">
-      <Row className="border-brand " cellPadding={0} color="#ffffff">
-        <Column
-          width={30}
-          className="border-brand"
-          align="left"
-          valign="middle"
-          color="#ffffff"
-        >
-          {!!icon && (
-            <Img
-              src={icon}
-              alt={text}
-              width="14"
-              height="14"
-              className="border-brand"
-            />
-          )}
-        </Column>
-        <Column
-          className="border-brand underline"
-          color="#ffffff"
-          align="left"
-          valign="middle"
-        >
-          <Text
-            className="text-white underline text-[12px] border-brand my-0"
+    <>
+      <span className=" whitespace-nowrap border-brand">
+        <span className="inline-block border-brand">
+          <Img
+            src={icon || icons.prod.empty}
+            alt={text}
+            width="10"
+            height="10"
+            className="border-brand"
+          />
+        </span>
+        &nbsp;&nbsp;
+        {href ? (
+          <Link
+            href={href}
+            className="text-white text-[10.5px] decoration-white border-brand my-0 overflow-hidden leading-5 text-ellipsis whitespace-nowrap"
             color="#ffffff"
           >
             {text}
-          </Text>
-        </Column>
-      </Row>
-    </Link>
+          </Link>
+        ) : (
+          <span className="text-white text-[10.5px] decoration-white border-brand my-0 overflow-hidden leading-5 text-ellipsis whitespace-nowrap">
+            {text}
+          </span>
+        )}
+      </span>
+      <p className="my-0 leading-[0] border-brand">&nbsp;</p>
+    </>
   );
 };
 
@@ -77,63 +70,46 @@ const SignatureEmail: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Section>
-        <Row className="text-white border-brand" bgcolor={BRAND_COLOR}>
-          <Font
-            fontFamily="Poppins, verdana, geneva, sans-serif;"
-            fallbackFontFamily={['Verdana', 'Georgia', 'sans-serif']}
-            webFont={{
-              url: 'https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2',
-              format: 'woff2',
-            }}
-            fontWeight={500}
-            fontStyle="normal"
-          />
-          <Font
-            fontFamily="Poppins, verdana, geneva, sans-serif;"
-            fallbackFontFamily={['Verdana', 'Georgia', 'sans-serif']}
-            webFont={{
-              url: 'https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2',
-              format: 'woff2',
-            }}
-            fontWeight={400}
-            fontStyle="normal"
-          />
+      <Section width={480} align="left" className="border-brand">
+        <Row className="text-white border-brand border-0" bgcolor={BRAND_COLOR}>
+          <ImportFonts />
+          {/* ABC */}
           <Column
             align="left"
-            className="py-6 px-10 border-brand whitespace-nowrap text-center"
-            style={{
-              width: Math.max(300, 12 * name.length),
-            }}
+            className="px-2 py-2 border-brand whitespace-nowrap text-center"
           >
             {/* Name */}
             <Img
-              className="mx-auto mb-2"
+              className="mx-auto"
               src={icons.prod.logo}
               alt="Logo"
-              width="90"
-              height="90"
+              width="65"
+              height="65"
             />
             <Text
-              className="text-[16px] p-0 m-0 border-brand text-white whitespace-nowrap"
+              className="text-[12px] p-0 m-0 border-brand  text-white whitespace-nowrap"
               color="#ffffff"
             >
               {name}
             </Text>
             <Text
-              className="text-[12px] p-0 m-0  font-light border-brand text-white whitespace-nowrap"
+              className="text-[10px] p-0 m-0 leading-4 font-light border-brand text-white whitespace-nowrap"
               color="#ffffff"
             >
               {title}
             </Text>
           </Column>
-          <Column align="left" className="border-brand w-[400px] text-white">
+
+          <Column
+            align="left"
+            className="border-brand text-white py-2"
+            width={200}
+          >
             <IconRow
               href={`tel:${phone.replace(/ /g, '')}`}
               text={phone}
               icon={icons.prod.phone}
             />
-
             {!!phone2 && (
               <IconRow
                 href={`tel:${phone2.replace(/ /g, '')}`}
@@ -141,22 +117,18 @@ const SignatureEmail: React.FC<Props> = ({
                 icon=""
               />
             )}
-
             <IconRow
               href={`mailto:${email}`}
               text={email}
               icon={icons.prod.mail}
             />
             <IconRow href={`mailto:${email2}`} text={email2} icon="" />
-
             <IconRow
               href="https://www.brainvector.com.au"
               text="www.brainvector.com.au"
               icon={icons.prod.link}
             />
-
             <IconRow
-              lastItem
               href="https://www.linkedin.com/company/brainvector/"
               text="Brain Vector"
               icon={icons.prod.linkedin}
