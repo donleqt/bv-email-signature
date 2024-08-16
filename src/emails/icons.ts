@@ -1,18 +1,28 @@
 export const icons = {
   dev: {
     phone: './img/phone.png',
+    phoneColor: './img/phone-color.png',
     mail: './img/mail.png',
+    mailColor: './img/mail-color.png',
     link: './img/link.png',
+    linkColor: './img/link-color.png',
     logo: './img/Logo.png',
+    logoFill: './img/logo-fill.png',
     linkedin: './img/linkedin.png',
+    linkedinColor: './img/linkedin-color.png',
     empty: './img/empty.png',
   },
   prod: {
     phone: 'https://i.ibb.co/X5jPwg0/phone.png',
+    phoneColor: 'https://i.ibb.co/MND92Yc/phone-color.png',
     mail: 'https://i.ibb.co/Jx2L60X/mail.png',
+    mailColor: 'https://i.ibb.co/6PPvw4T/mail-color.png',
     link: 'https://i.ibb.co/7KxkMzS/link.png',
+    linkColor: 'https://i.ibb.co/Lnyhk9d/link-color.png',
     logo: 'https://i.ibb.co/g61P16S/Logo.png',
     linkedin: 'https://i.ibb.co/Jphdv2b/linkedin.png',
+    linkedinColor: 'https://i.ibb.co/Vw9V6gG/linkedin-color.png',
     empty: 'https://i.ibb.co/8Bspr25/empty.png',
+    logoFill: 'https://i.ibb.co/6B25MYS/logo-fill.png',
   },
 };

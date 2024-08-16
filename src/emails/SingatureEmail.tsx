@@ -16,6 +16,7 @@ import { ImportFonts } from './ImportFonts';
 export type SignatureData = {
   title: string;
   name: string;
+  name2: string;
   phone: string;
   phone2: string;
   email: string;
@@ -35,8 +36,8 @@ type IconRowProps = {
 const IconRow = ({ href, text, icon }: IconRowProps) => {
   return (
     <>
-      <span className=" whitespace-nowrap border-brand bg-brand">
-        <span className="inline-block border-brand">
+      <span className=" whitespace-nowrap border-brand bg-brand align-middle">
+        <span className="inline-block border-brand align-middle">
           <Img
             src={icon || icons.prod.empty}
             alt={text}
@@ -46,19 +47,13 @@ const IconRow = ({ href, text, icon }: IconRowProps) => {
           />
         </span>
         &nbsp;&nbsp;
-        {href ? (
-          <Link
-            href={href}
-            className="text-white text-[10.5px] decoration-white border-brand my-0 overflow-hidden leading-5 text-ellipsis whitespace-nowrap"
-            color="#ffffff"
-          >
-            {text}
-          </Link>
-        ) : (
-          <span className="text-white text-[10.5px] decoration-white border-brand my-0 overflow-hidden leading-5 text-ellipsis whitespace-nowrap">
-            {text}
-          </span>
-        )}
+        <Link
+          href={href}
+          className="text-white text-[10.5px] align-middle decoration-white border-brand my-0 overflow-hidden leading-5 text-ellipsis whitespace-nowrap"
+          color="#ffffff"
+        >
+          {text}&nbsp;
+        </Link>
       </span>
       <p className="my-0 leading-[0] border-brand">&nbsp;</p>
     </>
@@ -66,39 +61,48 @@ const IconRow = ({ href, text, icon }: IconRowProps) => {
 };
 
 const SignatureEmail: React.FC<Props> = ({
-  data: { title, email, email2, phone, phone2, name },
+  data: { title, email, email2, phone, phone2, name, name2 },
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Section align="left" className="border-brand">
+      <Section align="left" width={500}>
         <Row
           className="text-white border-brand border-0"
           bgcolor={BRAND_COLOR}
           align="left"
-          width={480}
         >
           <ImportFonts />
           {/* ABC */}
           <Column
             align="left"
             className="px-2 py-2 border-brand whitespace-nowrap text-center bg-brand"
+            width={200}
           >
             {/* Name */}
             <Img
               className="mx-auto"
               src={icons.prod.logo}
               alt="Logo"
-              width="65"
-              height="65"
+              width="62"
+              height="62"
             />
             <Text
-              className="text-[12px] p-0 m-0 border-brand  text-white whitespace-nowrap"
+              className="text-[12px] p-0 m-0 border-brand  text-white"
               color="#ffffff"
             >
               {name}
             </Text>
+            {name2 && (
+              <Text
+                className="text-[12px] p-0 m-0 border-brand leading-3 text-white"
+                color="#ffffff"
+              >
+                {name2}
+              </Text>
+            )}
+
             <Text
-              className="text-[10px] p-0 m-0 leading-4 font-light border-brand text-white whitespace-nowrap"
+              className="text-[10px] p-0 m-0 leading-6 font-light border-brand text-white"
               color="#ffffff"
             >
               {title}
@@ -108,7 +112,7 @@ const SignatureEmail: React.FC<Props> = ({
           <Column
             align="left"
             className="border-brand text-white py-2 bg-brand"
-            width={200}
+            width={220}
           >
             <IconRow
               href={`tel:${phone.replace(/ /g, '')}`}
@@ -138,9 +142,6 @@ const SignatureEmail: React.FC<Props> = ({
               text="Brain Vector"
               icon={icons.prod.linkedin}
             />
-          </Column>
-          <Column align="center" className="border-brand">
-            <div>&nbsp;</div>
           </Column>
         </Row>
       </Section>

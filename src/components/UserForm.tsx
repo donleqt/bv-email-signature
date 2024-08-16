@@ -12,6 +12,7 @@ const UserForm: React.FC<UserFormProps> = ({ onChange, defaultData }) => {
 
     const formData: SignatureData = {
       title: getValue('title'),
+      name2: getValue('name2'),
       name: getValue('name'),
       email: getValue('email'),
       email2: getValue('email2'),
@@ -36,6 +37,15 @@ const UserForm: React.FC<UserFormProps> = ({ onChange, defaultData }) => {
           name="name"
           required
           defaultValue={defaultData.name}
+          className="block w-full mt-1 p-2 border rounded"
+        />
+
+        <label className="mt-1 block text-gray-600">Name 2:</label>
+        <input
+          type="text"
+          name="name2"
+          required
+          defaultValue={defaultData.name2}
           className="block w-full mt-1 p-2 border rounded"
         />
 
