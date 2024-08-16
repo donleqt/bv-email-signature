@@ -27,21 +27,21 @@ type IconRowProps = {
 const IconRow = ({ href, text, icon }: IconRowProps) => {
   return (
     <>
-      <span className="inline-block align-middle border-white">
+      <span className="inline-block align-middle border-transparent">
         {icon ? (
           <img
             src={icon}
             alt={text}
             width="11"
             height="11"
-            className="border-white align-middle"
+            className="border-transparent align-middle"
           />
         ) : null}
       </span>
-      <span className="border-white">&nbsp;</span>
+      <span className="border-transparent">&nbsp;</span>
       <a
         href={href}
-        className="text-[11px] align-middle decoration-brand text-brand leading-3 border-white"
+        className="text-[11px] align-middle decoration-brand text-brand leading-3 border-transparent"
         color="#ffffff"
       >
         {text}&nbsp;
@@ -59,7 +59,7 @@ export const SignatureSimple: React.FC<Props> = ({
         {/* Name */}
         <img src={icons.prod.logoFill} alt="Logo" width="80" height="80" />
 
-        <span className="border-white bg-white leading-[0]">&nbsp;</span>
+        <span className="border-transparent bg-white leading-[0]">&nbsp;</span>
 
         <div className="text-[14px] p-0 m-0 bg-white font-bold">
           {name}
@@ -68,10 +68,10 @@ export const SignatureSimple: React.FC<Props> = ({
 
         <div className="text-[11px] p-0 m-0 font-light bg-white">{title}</div>
 
-        <span className="border-white bg-white leading-[0]">-</span>
+        <span className="border-transparent bg-white leading-[0]">-</span>
 
         <div className="bg-white">
-          <div className="border-white my-0">
+          <div className="border-transparent my-0">
             <IconRow
               href={`tel:${phone.replace(/ /g, '')}`}
               text={phone}
@@ -79,7 +79,7 @@ export const SignatureSimple: React.FC<Props> = ({
             />
             {!!phone2 && (
               <>
-                <span className="border-white">&nbsp;-</span>
+                <span className="border-transparent">&nbsp;-</span>
                 <IconRow
                   href={`tel:${phone2.replace(/ /g, '')}`}
                   text={phone2}
@@ -88,7 +88,7 @@ export const SignatureSimple: React.FC<Props> = ({
               </>
             )}
           </div>
-          <div className="border-white my-0">
+          <div className="border-transparent my-0">
             <IconRow
               href={`mailto:${email}`}
               text={email}
@@ -96,13 +96,13 @@ export const SignatureSimple: React.FC<Props> = ({
             />
             {!!email2 && (
               <>
-                <span className="border-white">&nbsp;-</span>
+                <span className="border-transparent">&nbsp;-</span>
                 <IconRow href={`mailto:${email2}`} text={email2} icon="" />
               </>
             )}
           </div>
 
-          <div className="border-white my-0">
+          <div className="border-transparent my-0">
             <IconRow
               href="https://www.brainvector.com.au"
               text="www.brainvector.com.au"
@@ -110,7 +110,7 @@ export const SignatureSimple: React.FC<Props> = ({
             />
           </div>
 
-          <div className="border-white my-0">
+          <div className="border-transparent my-0">
             <IconRow
               href="https://www.linkedin.com/company/brainvector/"
               text="Brain Vector"
