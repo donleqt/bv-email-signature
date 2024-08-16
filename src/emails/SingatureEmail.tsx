@@ -76,7 +76,7 @@ const SignatureEmail: React.FC<Props> = ({
           {/* ABC */}
           <Column
             align="left"
-            className="px-2 py-2 border-brand whitespace-nowrap text-center"
+            className="px-2 py-2 border-brand whitespace-nowrap text-center bg-brand"
           >
             {/* Name */}
             <Img
@@ -102,7 +102,7 @@ const SignatureEmail: React.FC<Props> = ({
 
           <Column
             align="left"
-            className="border-brand text-white py-2"
+            className="border-brand text-white py-2 bg-brand"
             width={200}
           >
             <IconRow
