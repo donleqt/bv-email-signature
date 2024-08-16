@@ -35,7 +35,7 @@ type IconRowProps = {
 const IconRow = ({ href, text, icon }: IconRowProps) => {
   return (
     <>
-      <span className=" whitespace-nowrap border-brand">
+      <span className=" whitespace-nowrap border-brand bg-brand">
         <span className="inline-block border-brand">
           <Img
             src={icon || icons.prod.empty}
@@ -70,8 +70,13 @@ const SignatureEmail: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Section width={480} align="left" className="border-brand">
-        <Row className="text-white border-brand border-0" bgcolor={BRAND_COLOR}>
+      <Section align="left" className="border-brand">
+        <Row
+          className="text-white border-brand border-0"
+          bgcolor={BRAND_COLOR}
+          align="left"
+          width={480}
+        >
           <ImportFonts />
           {/* ABC */}
           <Column
