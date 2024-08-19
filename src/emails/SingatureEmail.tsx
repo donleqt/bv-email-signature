@@ -79,13 +79,15 @@ const SignatureEmail: React.FC<Props> = ({
             width={200}
           >
             {/* Name */}
-            <img
+            <Img
               src={icons.prod.logo}
               alt="Logo"
               width="62"
               height="62"
               className="mx-auto"
             />
+
+            <div style={{ lineHeight: 0.5 }}>&nbsp;</div>
 
             <span
               className="text-[12px] p-0 m-0 border-brand text-white"
