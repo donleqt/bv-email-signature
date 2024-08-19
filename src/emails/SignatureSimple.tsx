@@ -34,11 +34,11 @@ const IconRow = ({ href, text, icon }: IconRowProps) => {
             alt={text}
             width="11"
             height="11"
-            className="border-transparent align-middle"
+            className="border-transparent align-middle inline-block"
           />
         ) : null}
       </span>
-      <span className="border-transparent">&nbsp;</span>
+      <span className="border-transparent">&nbsp;&nbsp;</span>
       <a
         href={href}
         className="text-[11px] align-middle decoration-brand text-brand leading-3 border-transparent"

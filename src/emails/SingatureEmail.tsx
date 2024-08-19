@@ -38,12 +38,12 @@ const IconRow = ({ href, text, icon }: IconRowProps) => {
     <>
       <span className=" whitespace-nowrap border-brand bg-brand align-middle">
         <span className="inline-block border-brand align-middle">
-          <Img
+          <img
             src={icon || icons.prod.empty}
             alt={text}
             width="10"
             height="10"
-            className="border-brand"
+            className="border-brand align-middle inline-block"
           />
         </span>
         &nbsp;&nbsp;
@@ -74,24 +74,26 @@ const SignatureEmail: React.FC<Props> = ({
           <ImportFonts />
           {/* ABC */}
           <Column
-            align="left"
-            className="px-2 py-2 border-brand whitespace-nowrap text-center bg-brand"
+            align="center"
+            className="px-2 py-2 border-brand whitespace-nowrap text-center bg-brand text-white"
             width={200}
           >
             {/* Name */}
-            <Img
-              className="mx-auto"
+            <img
               src={icons.prod.logo}
               alt="Logo"
               width="62"
               height="62"
+              className="mx-auto"
             />
-            <Text
-              className="text-[12px] p-0 m-0 border-brand  text-white"
+
+            <span
+              className="text-[12px] p-0 m-0 border-brand text-white"
               color="#ffffff"
             >
               {name}
-            </Text>
+            </span>
+
             {name2 && (
               <Text
                 className="text-[12px] p-0 m-0 border-brand leading-3 text-white"
@@ -112,7 +114,7 @@ const SignatureEmail: React.FC<Props> = ({
           <Column
             align="left"
             className="border-brand text-white py-2 bg-brand"
-            width={220}
+            width={250}
           >
             <IconRow
               href={`tel:${phone.replace(/ /g, '')}`}
