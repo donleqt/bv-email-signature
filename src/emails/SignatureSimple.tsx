@@ -1,53 +1,19 @@
 import React from 'react';
 import { render } from '@react-email/render';
 import tailwindConfig from './tailwind';
-import { Tailwind } from '@react-email/components';
+import {
+  Column,
+  Img,
+  Link,
+  Row,
+  Tailwind,
+  Text,
+} from '@react-email/components';
 import { icons } from './icons';
-
-export type SignatureData = {
-  title: string;
-  name: string;
-  name2: string;
-  phone: string;
-  phone2: string;
-  email: string;
-  email2: string;
-};
+import { SignatureData } from './SingatureEmail';
 
 type Props = {
   data: SignatureData;
-};
-
-type IconRowProps = {
-  href: string;
-  text: string;
-  icon?: string;
-};
-
-const IconRow = ({ href, text, icon }: IconRowProps) => {
-  return (
-    <>
-      <span className="inline-block align-middle border-transparent">
-        {icon ? (
-          <img
-            src={icon}
-            alt={text}
-            width="11"
-            height="11"
-            className="border-transparent align-middle inline-block"
-          />
-        ) : null}
-      </span>
-      <span className="border-transparent">&nbsp;&nbsp;</span>
-      <a
-        href={href}
-        className="text-[11px] align-middle decoration-brand text-brand leading-3 border-transparent"
-        color="#ffffff"
-      >
-        {text}&nbsp;
-      </a>
-    </>
-  );
 };
 
 export const SignatureSimple: React.FC<Props> = ({
@@ -55,70 +21,49 @@ export const SignatureSimple: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <div>
-        {/* Name */}
-        <img src={icons.prod.logoFill} alt="Logo" width="80" height="80" />
+      <Row className="bg-transparent">
+        <Column align="center" valign="top" width={120}>
+          {/* Name */}
+          <Text>
+            <Img src={icons.prod.logoFill} alt="Logo" width="80" height="80" />
+          </Text>
 
-        <span className="border-transparent bg-white leading-[0]">&nbsp;</span>
-
-        <div className="text-[14px] p-0 m-0 bg-white font-bold">
-          {name}
-          {name2 ? ` | ${name2}` : ''}
-        </div>
-
-        <div className="text-[11px] p-0 m-0 font-light bg-white">{title}</div>
-
-        <span className="border-transparent bg-white leading-[0]">-</span>
-
-        <div className="bg-white">
-          <div className="border-transparent my-0">
-            <IconRow
-              href={`tel:${phone.replace(/ /g, '')}`}
-              text={phone}
-              icon={icons.prod.phoneColor}
+          <Link href="https://www.linkedin.com/company/brainvector/">
+            <Img
+              src={icons.prod.linkedinColor}
+              className="mt-1"
+              alt="linkedin"
+              width="16"
+              height="16"
             />
-            {!!phone2 && (
-              <>
-                <span className="border-transparent">&nbsp;-</span>
-                <IconRow
-                  href={`tel:${phone2.replace(/ /g, '')}`}
-                  text={phone2}
-                  icon=""
-                />
-              </>
-            )}
-          </div>
-          <div className="border-transparent my-0">
-            <IconRow
-              href={`mailto:${email}`}
-              text={email}
-              icon={icons.prod.mailColor}
-            />
-            {!!email2 && (
-              <>
-                <span className="border-transparent">&nbsp;-</span>
-                <IconRow href={`mailto:${email2}`} text={email2} icon="" />
-              </>
-            )}
-          </div>
+          </Link>
+        </Column>
 
-          <div className="border-transparent my-0">
-            <IconRow
-              href="https://www.brainvector.com.au"
-              text="www.brainvector.com.au"
-              icon={icons.prod.linkColor}
-            />
-          </div>
+        <Column width={30} />
 
-          <div className="border-transparent my-0">
-            <IconRow
-              href="https://www.linkedin.com/company/brainvector/"
-              text="Brain Vector"
-              icon={icons.prod.linkedinColor}
-            />
-          </div>
-        </div>
-      </div>
+        <Column valign="top">
+          <Text className="text-xs font-bold my-0 mt-4 bg-transparent">
+            {name} {name2 ? ` | ${name2}` : ''}
+          </Text>
+          <Text className="text-xs font-bold my-0 mt-2  bg-transparent">
+            {title}
+          </Text>
+
+          <Text className="text-xs my-0 mt-5  bg-transparent">
+            <b>M: </b>
+            {phone} {phone2 ? ` | ${phone2}` : ''}
+          </Text>
+
+          <Text className="text-xs my-0 mt-2  bg-transparent">
+            <b>E: </b>
+            {email} {email2 ? ` | ${email2}` : ''}
+          </Text>
+
+          <Text className="text-xs my-0 mt-2  bg-transparent">
+            <b>W: </b>https://www.brainvector.com.au
+          </Text>
+        </Column>
+      </Row>
     </Tailwind>
   );
 };

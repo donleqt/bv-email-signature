@@ -16,11 +16,11 @@ import { ImportFonts } from './ImportFonts';
 export type SignatureData = {
   title: string;
   name: string;
-  name2: string;
+  name2?: string;
   phone: string;
-  phone2: string;
+  phone2?: string;
   email: string;
-  email2: string;
+  email2?: string;
 };
 
 type Props = {
@@ -127,7 +127,7 @@ const SignatureEmail: React.FC<Props> = ({
               text={email}
               icon={icons.prod.mail}
             />
-            <IconRow href={`mailto:${email2}`} text={email2} icon="" />
+            <IconRow href={`mailto:${email2}`} text={email2 ?? ''} icon="" />
             <IconRow
               href="https://www.brainvector.com.au"
               text="www.brainvector.com.au"

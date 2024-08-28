@@ -10,12 +10,12 @@ import { renderEmailSimple, SignatureSimple } from './emails/SignatureSimple';
 
 const defaultSigData: SignatureData = {
   name: 'Dr Stephane Verhaeghe',
-  name2: 'Dan Stevens',
+  // name2: 'Dan Stevens',
   title: 'Co-Founders',
   phone: '+61 429 150 869',
-  phone2: '+61 402 450 030',
+  // phone2: '+61 402 450 030',
   email: 'stephane@brainvector.com.au',
-  email2: 'dan@brainvector.com.au',
+  // email2: 'dan@brainvector.com.au',
 };
 
 function App() {
