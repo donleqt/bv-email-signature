@@ -87,20 +87,12 @@ const SignatureEmail: React.FC<Props> = ({
               className="mx-auto"
             />
 
-            <div style={{ lineHeight: 0.5 }}>&nbsp;</div>
-
-            <span
-              className="text-[12px] p-0 m-0 border-brand text-white"
-              color="#ffffff"
-            >
+            <Text className="text-[12px] p-0 m-0 border-brand text-white">
               {name}
-            </span>
+            </Text>
 
             {name2 && (
-              <Text
-                className="text-[12px] p-0 m-0 border-brand leading-3 text-white"
-                color="#ffffff"
-              >
+              <Text className="text-[12px] p-0 m-0 border-brand leading-3 text-white">
                 {name2}
               </Text>
             )}
