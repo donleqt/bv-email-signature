@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import SignatureEmail, {
-  renderEmail,
-  SignatureData,
-} from './emails/SingatureEmail';
 import UserForm from './components/UserForm';
 import { copyHtmlWithStylesToClipboard } from './helpers/copyToClipboard';
 import { renderEmailSimple, SignatureSimple } from './emails/SignatureSimple';
+import { SignatureData } from './emails/types';
 
 const defaultSigData: SignatureData = {
   name: 'Dr Stephane Verhaeghe',
@@ -29,44 +26,22 @@ function App() {
         </div>
 
         <div className="mt-12 bg-white shadow-md p-5 rounded flex flex-col gap-8">
-          {/* Option 1 */}
-          <div>
-            <div id="signature" className="flex flex-col">
-              <SignatureEmail data={sigData} />
-            </div>
-
-            <div>
-              <button
-                type="button"
-                className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                onClick={() => {
-                  const html = renderEmail(sigData);
-                  copyHtmlWithStylesToClipboard(html);
-                }}
-              >
-                Copy Signature 1
-              </button>
-            </div>
-          </div>
-
-          <hr />
-
-          {/* Option 2 */}
           <div>
             <div id="signature2" className="flex flex-col">
               <SignatureSimple data={sigData} />
             </div>
 
             <div>
+              <hr className="my-6" />
               <button
                 type="button"
-                className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                 onClick={() => {
                   const html = renderEmailSimple(sigData);
                   copyHtmlWithStylesToClipboard(html);
                 }}
               >
-                Copy Signature 2
+                Copy Signature
               </button>
             </div>
           </div>

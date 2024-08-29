@@ -10,7 +10,7 @@ import {
   Text,
 } from '@react-email/components';
 import { icons } from './icons';
-import { SignatureData } from './SingatureEmail';
+import { SignatureData } from './types';
 
 type Props = {
   data: SignatureData;

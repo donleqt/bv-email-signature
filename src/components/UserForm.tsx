@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignatureData } from '../emails/SingatureEmail';
+import { SignatureData } from '../emails/types';
 
 interface UserFormProps {
   defaultData: SignatureData;
