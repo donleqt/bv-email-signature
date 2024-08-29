@@ -74,7 +74,7 @@ export const SignatureSimple: React.FC<Props> = ({
           </Text>
 
           <Text className="text-xs text-gray-600 my-0 mt-2  bg-transparent border-white">
-            <b className="border-white">W: </b>https://www.brainvector.com.au
+            <b className="border-white">W: </b>www.brainvector.com.au
           </Text>
         </Column>
       </Row>
