@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import UserForm from './components/UserForm';
 import { copyHtmlWithStylesToClipboard } from './helpers/copyToClipboard';
@@ -15,8 +15,21 @@ const defaultSigData: SignatureData = {
   // email2: 'dan@brainvector.com.au',
 };
 
+const password = 'YnZzaWdAMjAyNA==';
+let isLogged = false;
+
+const value = window.prompt('Enter the password:');
+
+if (value && btoa(value) === password) {
+  isLogged = true;
+}
+
 function App() {
   const [sigData, setSigData] = useState<SignatureData>(defaultSigData);
+
+  if (!isLogged) {
+    return <h1 className="text-center">Comming Soon!</h1>;
+  }
 
   return (
     <div className="px-4">

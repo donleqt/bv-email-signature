@@ -40,7 +40,7 @@ const UserForm: React.FC<UserFormProps> = ({ onChange, defaultData }) => {
           className="block w-full mt-1 p-2 border rounded"
         />
 
-        <label className="mt-1 block text-gray-600">Name 2:</label>
+        <label className="mt-4 block text-gray-600">Name 2:</label>
         <input
           type="text"
           name="name2"
