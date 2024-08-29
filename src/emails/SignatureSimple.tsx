@@ -29,13 +29,13 @@ export const SignatureSimple: React.FC<Props> = ({
           width={120}
         >
           {/* Name */}
-          <Text className="border-white">
+          <Text className="border-white mt-4">
             <Img
               className="border-white"
               src={icons.prod.logoFill}
               alt="Logo"
-              width="80"
-              height="80"
+              width="75"
+              height="75"
             />
           </Text>
 
@@ -53,7 +53,7 @@ export const SignatureSimple: React.FC<Props> = ({
           </Link>
         </Column>
 
-        <Column className="border-white" width={30} />
+        <Column className="border-white" width={10} />
 
         <Column className="border-white" valign="top">
           <Text className="text-sm font-bold my-0 mt-4 bg-transparent border-white">
