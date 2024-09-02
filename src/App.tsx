@@ -16,9 +16,12 @@ const defaultSigData: SignatureData = {
 };
 
 const password = 'YnZzaWdAMjAyNA==';
-let isLogged = false;
+let isLogged = process.env.NODE_ENV === 'development';
+let value;
 
-const value = window.prompt('Enter the password:');
+if (!isLogged) {
+  value = window.prompt('Enter the password:');
+}
 
 if (value && btoa(value) === password) {
   isLogged = true;

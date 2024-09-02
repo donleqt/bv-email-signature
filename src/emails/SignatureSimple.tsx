@@ -21,17 +21,12 @@ export const SignatureSimple: React.FC<Props> = ({
 }) => {
   return (
     <Tailwind config={tailwindConfig}>
-      <Row className="bg-transparent border-white">
-        <Column
-          className="border-white"
-          align="center"
-          valign="top"
-          width={120}
-        >
+      <Row className="bg-transparent border-none">
+        <Column className="border-none" align="center" valign="top" width={120}>
           {/* Name */}
-          <Text className="border-white mt-4">
+          <Text className="border-none mt-4">
             <Img
-              className="border-white"
+              className="border-none"
               src={icons.prod.logoFill}
               alt="Logo"
               width="75"
@@ -40,12 +35,12 @@ export const SignatureSimple: React.FC<Props> = ({
           </Text>
 
           <Link
-            className="border-white"
+            className="border-none"
             href="https://www.linkedin.com/company/brainvector/"
           >
             <Img
               src={icons.prod.linkedinColor}
-              className="border-white mt-1"
+              className="border-none mt-1"
               alt="linkedin"
               width="16"
               height="16"
@@ -53,28 +48,28 @@ export const SignatureSimple: React.FC<Props> = ({
           </Link>
         </Column>
 
-        <Column className="border-white" width={10} />
+        <Column className="border-none" width={10} />
 
-        <Column className="border-white" valign="top">
-          <Text className="text-sm font-bold my-0 mt-4 bg-transparent border-white">
+        <Column className="border-none" valign="top">
+          <Text className="text-sm font-bold my-0 mt-4 bg-transparent border-none">
             {name} {name2 ? ` | ${name2}` : ''}
           </Text>
-          <Text className="text-sm font-bold my-0 mt-2  bg-transparent border-white">
+          <Text className="text-sm my-0 mt-2  bg-transparent border-none">
             {title}
           </Text>
 
-          <Text className="text-xs text-gray-600 my-0 mt-5  bg-transparent border-white">
-            <b className="border-white">M: </b>
+          <Text className="text-xs text-gray-600 my-0 mt-5  bg-transparent border-none">
+            <b className="border-none">M: </b>
             {phone} {phone2 ? ` | ${phone2}` : ''}
           </Text>
 
-          <Text className="text-xs text-gray-600 my-0 mt-2  bg-transparent border-white">
-            <b className="border-white">E: </b>
+          <Text className="text-xs text-gray-600 my-0 mt-2  bg-transparent border-none">
+            <b className="border-none">E: </b>
             {email} {email2 ? ` | ${email2}` : ''}
           </Text>
 
-          <Text className="text-xs text-gray-600 my-0 mt-2  bg-transparent border-white">
-            <b className="border-white">W: </b>www.brainvector.com.au
+          <Text className="text-xs text-gray-600 my-0 mt-2  bg-transparent border-none">
+            <b className="border-none">W: </b>www.brainvector.com.au
           </Text>
         </Column>
       </Row>
